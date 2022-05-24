@@ -5,12 +5,6 @@ export default function MovieCard (props) {
   
   const { title, director, metascore, stars } = props.movie;
 
-  const [movieID, setMovieID] = useState()
-
-  const toggleDetails = () => {
-    setMovieID(props.movie.id);
-  }
-
   return(
     <div className="movie-card">
       <Link to={`/movies/${props.movie.id}`}>
@@ -21,6 +15,12 @@ export default function MovieCard (props) {
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
         </div>
+        <h3>Actors</h3>
+        {stars && stars.map(star => (
+          <div key={star} className="movie-star">
+            {star}
+          </div>
+        ))}
       </Link>
     </div>
   );

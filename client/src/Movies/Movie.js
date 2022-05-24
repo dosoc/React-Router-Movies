@@ -37,14 +37,8 @@ export default function Movie(props) {
     <div className="save-wrapper">
       <div className="movie-card">
         <MovieCard movie={movie}/>
-        <h3>Actors</h3>
-        {stars.map(star => (
-          <div key={star} className="movie-star">
-            {star}
-          </div>
-        ))}
+        <div className="save-button">Save</div>
       </div>
-      <div className="save-button">Save</div>
     </div>
   );
 }

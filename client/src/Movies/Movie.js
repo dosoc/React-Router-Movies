@@ -6,6 +6,8 @@ import MovieCard from './MovieCard'
 export default function Movie(props) {
   const [movie, setMovie] = useState();
 
+  const {addToSavedList} = props
+
   const { id } = useParams();
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
@@ -37,7 +39,7 @@ export default function Movie(props) {
     <div className="save-wrapper">
       <div className="movie-card">
         <MovieCard movie={movie}/>
-        <div className="save-button">Save</div>
+        <div className="save-button" onClick={() => addToSavedList(movie.id)}>Save</div>
       </div>
     </div>
   );

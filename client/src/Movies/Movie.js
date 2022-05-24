@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, NavLink, useRouteMatch, Route} from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import MovieCard from './MovieCard'
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
@@ -21,7 +22,7 @@ export default function Movie(props) {
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
-  }, []);
+  }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => { }
@@ -35,15 +36,8 @@ export default function Movie(props) {
   return (
     <div className="save-wrapper">
       <div className="movie-card">
-        <h2>{title}</h2>
-        <div className="movie-director">
-          Director: <em>{director}</em>
-        </div>
-        <div className="movie-metascore">
-          Metascore: <strong>{metascore}</strong>
-        </div>
+        <MovieCard movie={movie}/>
         <h3>Actors</h3>
-
         {stars.map(star => (
           <div key={star} className="movie-star">
             {star}
